@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">  
+     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
+    <link rel="stylesheet" href="assets/js/plugins/datatables-bs5/dataTables.bootstrap5.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>SabriSalehHassanyah-ITSM</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    
+  </body>
+  <script src="assets/js/oneui.app.min.js"></script>
+  <script src="assets/js/lib/jquery.min.js"></script>
+  <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+
+  <script src="assets/js/plugins/datatables-bs5/dataTables.bootstrap5.min.js"></script>
+  <script src="assets/js/plugins//datatables/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      oTable = $('.datatable').DataTable({
+        scrollY:true,
+        paging: true,
+        bFilter: true,
+        ordering: true,
+        searching: true,
+        "dom": '<"top">rt<"bottom"l><"clear">'
+      });   //pay attention to capital D, which is mandatory to retrieve "api" datatables' object, as @Lionel said
+      $('#searchbar').keyup(function(){
+            oTable.search($(this).val()).draw() ;
+      })
+      
+     
+    })
+  </script>
+
+</html>
